@@ -1,0 +1,15 @@
+{
+    "dry-run-result": {
+        "native": {
+            "device": [
+                {
+                    "data": "
+ip name-server 3.3.3.3
+ip name-server 4.4.4.4
+",
+                    "name": "csr0"
+                }
+            ]
+        }
+    }
+}

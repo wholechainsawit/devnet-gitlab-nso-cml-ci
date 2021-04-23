@@ -1,0 +1,15 @@
+{
+    "dry-run-result": {
+        "native": {
+            "device": [
+                {
+                    "data": "
+ntp server 1.1.1.1
+ntp server 2.2.2.2
+",
+                    "name": "csr1"
+                }
+            ]
+        }
+    }
+}

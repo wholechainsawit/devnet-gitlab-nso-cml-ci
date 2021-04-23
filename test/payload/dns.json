@@ -1,0 +1,7 @@
+{
+    "config-dns:config-dns": [
+        {
+            "device": "csr0"
+        }
+    ]
+}

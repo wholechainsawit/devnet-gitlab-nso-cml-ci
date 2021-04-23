@@ -1,0 +1,20 @@
+<config-template xmlns="http://tail-f.com/ns/config/1.0"
+                 servicepoint="config-ntp">
+  <devices xmlns="http://tail-f.com/ns/ncs">
+    <device>
+      <name>{/device}</name>
+      <config>
+                   <ntp xmlns="urn:ios">
+                     <server>
+                       <peer-list>
+                         <name>1.1.1.1</name>
+                       </peer-list>
+                       <peer-list>
+                         <name>2.2.2.2</name>
+                       </peer-list>
+                     </server>
+                   </ntp>
+      </config>
+    </device>
+  </devices>
+</config-template>

@@ -1,0 +1,30 @@
+<devices xmlns="http://tail-f.com/ns/ncs">
+  <device>
+    <name>csr0</name>
+    <address>10.10.20.56</address>
+    <authgroup>cisco</authgroup>
+    <device-type>
+      <cli>
+        <ned-id xmlns:cisco-ios-cli-3.8="http://tail-f.com/ns/ned-id/cisco-ios-cli-3.8">cisco-ios-cli-3.8:cisco-ios-cli-3.8</ned-id>
+        <protocol>ssh</protocol>
+      </cli>
+    </device-type>
+    <state>
+      <admin-state>unlocked</admin-state>
+    </state>
+  </device>
+  <device>
+    <name>csr1</name>
+    <address>10.10.20.57</address>
+    <authgroup>cisco</authgroup>
+    <device-type>
+      <cli>
+        <ned-id xmlns:cisco-ios-cli-3.8="http://tail-f.com/ns/ned-id/cisco-ios-cli-3.8">cisco-ios-cli-3.8:cisco-ios-cli-3.8</ned-id>
+        <protocol>ssh</protocol>
+      </cli>
+    </device-type>
+    <state>
+      <admin-state>unlocked</admin-state>
+    </state>
+  </device>
+</devices>

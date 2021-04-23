@@ -1,0 +1,72 @@
+variables:
+  HTTP_ENABLE: "true"
+  HTTPS_ENABLE: "true"
+  ADMIN_USERNAME: "admin"
+  ADMIN_PASSWORD: "admin"
+
+image:
+  name: "cisco-nso-dev:5.4.3-developer"
+  entrypoint: [""]
+
+before_script:
+    - source /opt/ncs/current/ncsrc
+
+stages:
+    - Load Device Bootstrap Configs
+    - Ping Devices
+    - Dryrun and Commit Tests
+    - Clean Up CML
+
+Load Topology config:
+  stage: Load Device Bootstrap Configs
+  script:
+    - pip3 install virl2_client
+    - python3 cml/cml_load_topo.py --config cml/cml_2csr_topo.yaml
+
+Ping devices:
+  stage: Ping Devices
+  script:
+    - pip3 install virl2_client
+    - python3 cml/cml_ping_check.py
+
+Test config-dns Package:
+  stage: Dryrun and Commit Tests
+  script:
+    - pip3 install pytest requests
+    - mkdir -p /nso/run/packages
+    - cp -af packages/* /nso/run/packages
+    - ln -s /opt/ncs/current/packages/neds/cisco-ios-cli-3.8 /nso/run/packages/cisco-ios-cli-3.8 
+    - /run-nso.sh > /dev/null 2>&1 &
+    - bash nso/check_nso_readiness.sh
+    - echo "show packages package package-version" | ncs_cli -u admin
+    - echo "show packages package oper-status" | ncs_cli -u admin
+    - ncs_load -lm nso/auth_groups.xml -u admin
+    - ncs_load -lm nso/load_devices.xml -u admin
+    - echo "request devices fetch-ssh-host-keys" | ncs_cli -u admin
+    - echo "request devices sync-from" | ncs_cli -u admin
+    - echo "show devices list" | ncs_cli -u admin
+    - cd test; python3 -m pytest -sv dryrun_tests/test_config_dns.py
+
+Test config-ntp Package:
+  stage: Dryrun and Commit Tests
+  script:
+    - pip3 install pytest requests
+    - mkdir -p /nso/run/packages
+    - cp -af packages/* /nso/run/packages
+    - ln -s /opt/ncs/current/packages/neds/cisco-ios-cli-3.8 /nso/run/packages/cisco-ios-cli-3.8 
+    - /run-nso.sh > /dev/null 2>&1 &
+    - bash nso/check_nso_readiness.sh
+    - echo "show packages package package-version" | ncs_cli -u admin
+    - echo "show packages package oper-status" | ncs_cli -u admin
+    - ncs_load -lm nso/auth_groups.xml -u admin
+    - ncs_load -lm nso/load_devices.xml -u admin
+    - echo "request devices fetch-ssh-host-keys" | ncs_cli -u admin
+    - echo "request devices sync-from" | ncs_cli -u admin
+    - echo "show devices list" | ncs_cli -u admin
+    - cd test; python3 -m pytest -sv dryrun_tests/test_config_ntp.py
+
+Clean Up CML:
+  stage: Clean Up CML
+  script:
+    - pip3 install virl2_client
+    - python3 cml/cml_stop_lab.py

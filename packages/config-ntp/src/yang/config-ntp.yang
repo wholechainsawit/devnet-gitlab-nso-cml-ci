@@ -1,0 +1,26 @@
+module config-ntp {
+  namespace "http://com/example/configntp";
+  prefix config-ntp;
+
+  import ietf-inet-types {
+    prefix inet;
+  }
+  import tailf-ncs {
+    prefix ncs;
+  }
+
+  augment /ncs:services {
+    list config-ntp {
+      key device;
+
+      uses ncs:service-data;
+      ncs:servicepoint "config-ntp";
+
+      leaf device {
+	type leafref {
+	  path "/ncs:devices/ncs:device/ncs:name";
+	}
+      }
+    }
+  }
+}

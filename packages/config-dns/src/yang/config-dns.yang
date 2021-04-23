@@ -1,0 +1,26 @@
+module config-dns {
+  namespace "http://com/example/configdns";
+  prefix config-dns;
+
+  import ietf-inet-types {
+    prefix inet;
+  }
+  import tailf-ncs {
+    prefix ncs;
+  }
+
+  augment /ncs:services {
+    list config-dns {
+      key device;
+
+      uses ncs:service-data;
+      ncs:servicepoint "config-dns";
+
+      leaf device {
+	type leafref {
+	  path "/ncs:devices/ncs:device/ncs:name";
+	}
+      }
+    }
+  }
+}
