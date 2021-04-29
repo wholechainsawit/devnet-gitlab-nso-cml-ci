@@ -1,0 +1,6 @@
+[submodule "setup/nso-docker"]
+	path = setup/nso-docker
+	url = https://gitlab.com/nso-developer/nso-docker.git
+[submodule "setup/nso_cicd_setup"]
+	path = setup/nso_cicd_setup
+	url = https://github.com/CiscoDevNet/nso_cicd_setup
