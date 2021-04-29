@@ -5,7 +5,7 @@ variables:
   ADMIN_PASSWORD: "admin"
 
 image:
-  name: "cisco-nso-dev:5.4.3-developer"
+  name: "cisco-nso-dev:5.3-developer"
   entrypoint: [""]
 
 before_script:
