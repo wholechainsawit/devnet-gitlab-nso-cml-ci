@@ -1,3 +1,6 @@
+# Clone repo with submodule
+`git clone --recurse-submodules https://github.com/wholechainsawit/devnet-gitlab-nso-cml-ci.git`
+
 # Clone repo
 For gitlab setup: `git clone https://github.com/CiscoDevNet/nso_cicd_setup nso_cicd_setup`
 For nso-docker: `https://gitlab.com/nso-developer/nso-docker.git`
