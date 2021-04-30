@@ -2,7 +2,7 @@
   <name>config-dns</name>
   <package-version>1.0</package-version>
   <description>Template-based config-dns resource facing service</description>
-  <ncs-min-version>5.4</ncs-min-version>
+  <ncs-min-version>5.1</ncs-min-version>
 
   <!-- It's possible to add more components to the -->
   <!-- same package, multiple services, data providers etc -->
