@@ -1,15 +1,14 @@
 lab:
-  description: A sample network built with IOS XE for NSO CI
-    Linux hosts.
+  description: A sample network built with IOS XE for NSO CI Linux hosts.
   notes: ''
-  timestamp: 1603303517.385979
-  title: Gitlab NSO CI
+  timestamp: 1619740721.9066012
+  title: TWO_CSR1kv
   version: 0.0.3
 nodes:
   - id: n12
     label: sandbox-backend
     node_definition: unmanaged_switch
-    x: -1000
+    x: -1100
     y: 50
     configuration: ''
     tags: []
@@ -69,8 +68,8 @@ nodes:
   - id: n13
     label: bridge-to-sandbox
     node_definition: external_connector
-    x: -1000
-    y: -50
+    x: -1250
+    y: 50
     configuration: bridge0
     tags: []
     interfaces:
@@ -81,8 +80,8 @@ nodes:
   - id: n0
     label: csr1000v-0
     node_definition: csr1000v
-    x: -1100
-    y: 250
+    x: -900
+    y: -50
     configuration: |-
       hostname ios1
       !
@@ -130,8 +129,8 @@ nodes:
   - id: n1
     label: csr1000v-1
     node_definition: csr1000v
-    x: -800
-    y: 250
+    x: -900
+    y: 150
     configuration: |-
       hostname ios2
       !
