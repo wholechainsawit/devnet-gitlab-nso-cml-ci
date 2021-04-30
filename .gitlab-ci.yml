@@ -12,10 +12,23 @@ before_script:
     - source /opt/ncs/current/ncsrc
 
 stages:
+    - Build
     - Load Device Bootstrap Configs
     - Ping Devices
     - Dryrun and Commit Tests
     - Clean Up CML
+
+Compile NSO Packages:
+  stage: Build
+  script:
+    - mkdir -p release
+    - make -C packages/config-dns/src clean all || exit 1
+    - make -C packages/config-ntp/src clean all || exit 1
+    - cp -af packages/config-dns/ release/
+    - cp -af packages/config-ntp/ release/
+  artifacts:
+    paths:
+      - release/
 
 Load Topology config:
   stage: Load Device Bootstrap Configs
@@ -34,8 +47,8 @@ Test config-dns Package:
   script:
     - pip3 install pytest requests
     - mkdir -p /nso/run/packages
-    - cp -af packages/* /nso/run/packages
-    - ln -s /opt/ncs/current/packages/neds/cisco-ios-cli-3.8 /nso/run/packages/cisco-ios-cli-3.8 
+    - cp -af release/* /nso/run/packages
+    - ln -s /opt/ncs/current/packages/neds/cisco-ios-cli-3.8 /nso/run/packages/cisco-ios-cli
     - /run-nso.sh > /dev/null 2>&1 &
     - bash nso/check_nso_readiness.sh
     - echo "show packages package package-version" | ncs_cli -u admin
