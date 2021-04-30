@@ -65,8 +65,8 @@ Test config-ntp Package:
   script:
     - pip3 install pytest requests
     - mkdir -p /nso/run/packages
-    - cp -af packages/* /nso/run/packages
-    - ln -s /opt/ncs/current/packages/neds/cisco-ios-cli-3.8 /nso/run/packages/cisco-ios-cli-3.8 
+    - cp -af release/* /nso/run/packages
+    - ln -s /opt/ncs/current/packages/neds/cisco-ios-cli-3.8 /nso/run/packages/cisco-ios-cli
     - /run-nso.sh > /dev/null 2>&1 &
     - bash nso/check_nso_readiness.sh
     - echo "show packages package package-version" | ncs_cli -u admin
