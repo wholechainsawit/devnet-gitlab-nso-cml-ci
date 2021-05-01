@@ -50,8 +50,7 @@ Test config-dns Package:
     - bash nso/check_nso_readiness.sh
     - echo "show packages package package-version" | ncs_cli -u admin
     - echo "show packages package oper-status" | ncs_cli -u admin
-    - ncs_load -lm nso/extend_timeout.xml -u admin
-    - ncs_load -lm nso/auth_groups.xml -u admin
+    - ncs_load -lm nso/ci_setup.xml -u admin
     - ncs_load -lm nso/load_devices.xml -u admin
     - echo "request devices fetch-ssh-host-keys" | ncs_cli -u admin
     - echo "request devices sync-from" | ncs_cli -u admin
@@ -68,8 +67,7 @@ Test config-ntp Package:
     - bash nso/check_nso_readiness.sh
     - echo "show packages package package-version" | ncs_cli -u admin
     - echo "show packages package oper-status" | ncs_cli -u admin
-    - ncs_load -lm nso/extend_timeout.xml -u admin
-    - ncs_load -lm nso/auth_groups.xml -u admin
+    - ncs_load -lm nso/ci_setup.xml -u admin
     - ncs_load -lm nso/load_devices.xml -u admin
     - echo "request devices fetch-ssh-host-keys" | ncs_cli -u admin
     - echo "request devices sync-from" | ncs_cli -u admin
