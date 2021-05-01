@@ -10,3 +10,6 @@ echo "Set up Gitlab..."
 pushd nso_cicd_setup/gitlab/
 make
 popd
+
+# Setup gitconfig
+cp -n gitconfig $HOME/.gitconfig
