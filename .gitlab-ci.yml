@@ -14,7 +14,7 @@ before_script:
 stages:
     - Build
     - Load Device Bootstrap Configs
-    - Ping Devices
+    - Check Connection
     - Dryrun and Commit Tests
     - Clean Up CML
 
@@ -35,8 +35,8 @@ Load Topology config:
   script:
     - python3 cml/cml_load_topo.py --config cml/cml_2csr_topo.yaml
 
-Ping devices:
-  stage: Ping Devices
+Check Connection:
+  stage: Check Connection
   script:
     - python3 cml/cml_ping_check.py
 
