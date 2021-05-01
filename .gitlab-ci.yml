@@ -13,9 +13,9 @@ before_script:
 
 stages:
     - Build
-    - Load Device Bootstrap Configs
+    - Load Config to CML
     - Check Connection
-    - Dryrun and Commit Tests
+    - NSO Dryrun Tests
     - Clean Up CML
 
 Compile NSO Packages:
@@ -30,7 +30,7 @@ Compile NSO Packages:
       - release/
 
 Load Topology config:
-  stage: Load Device Bootstrap Configs
+  stage: Load Config to CML
   script:
     - python3 cml/cml_load_topo.py --config cml/cml_2csr_topo.yaml
 
@@ -40,7 +40,7 @@ Check Connection:
     - python3 cml/cml_ping_check.py
 
 Test config-dns Package:
-  stage: Dryrun and Commit Tests
+  stage: NSO Dryrun Tests
   script:
     - mkdir -p /nso/run/packages
     - cp -af release/* /nso/run/packages
@@ -54,7 +54,7 @@ Test config-dns Package:
     - cd test; python3 -m pytest -sv dryrun_tests/test_config_dns.py
 
 Test config-ntp Package:
-  stage: Dryrun and Commit Tests
+  stage: NSO Dryrun Tests
   script:
     - mkdir -p /nso/run/packages
     - cp -af release/* /nso/run/packages
