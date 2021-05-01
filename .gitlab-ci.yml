@@ -5,7 +5,7 @@ variables:
   ADMIN_PASSWORD: "admin"
 
 image:
-  name: "cisco-nso-dev:5.3-developer"
+  name: "nso:gitlabci"
   entrypoint: [""]
 
 before_script:
@@ -33,19 +33,16 @@ Compile NSO Packages:
 Load Topology config:
   stage: Load Device Bootstrap Configs
   script:
-    - pip3 install virl2_client
     - python3 cml/cml_load_topo.py --config cml/cml_2csr_topo.yaml
 
 Ping devices:
   stage: Ping Devices
   script:
-    - pip3 install virl2_client
     - python3 cml/cml_ping_check.py
 
 Test config-dns Package:
   stage: Dryrun and Commit Tests
   script:
-    - pip3 install pytest requests
     - mkdir -p /nso/run/packages
     - cp -af release/* /nso/run/packages
     - ln -s /opt/ncs/current/packages/neds/cisco-ios-cli-3.8 /nso/run/packages/cisco-ios-cli
@@ -64,7 +61,6 @@ Test config-dns Package:
 Test config-ntp Package:
   stage: Dryrun and Commit Tests
   script:
-    - pip3 install pytest requests
     - mkdir -p /nso/run/packages
     - cp -af release/* /nso/run/packages
     - ln -s /opt/ncs/current/packages/neds/cisco-ios-cli-3.8 /nso/run/packages/cisco-ios-cli
@@ -83,5 +79,4 @@ Test config-ntp Package:
 Clean Up CML:
   stage: Clean Up CML
   script:
-    - pip3 install virl2_client
     - python3 cml/cml_stop_lab.py
