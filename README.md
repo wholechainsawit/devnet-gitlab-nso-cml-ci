@@ -5,21 +5,19 @@
    ```
    bash nso-5.3.linux.x86_64.signed.bin
    ```
+   Copy the trial NSO to the Dev Server (password: C1sco12345)
+   ```
+   scp nso-5.3.linux.x86_64.installer.bin developer@10.10.20.50:/home/developer/devnet-gitlab-nso-cml-ci/setup/nso-docker/nso-install-files
+   ```
    
-3. After connecting to Devnet sandbox VPN, ssh to Dev Server
+3. After connecting to Devnet sandbox VPN, ssh to Dev Server (password: C1sco12345)
    ```
    ssh developer@10.10.20.50 
    ```
-   password: C1sco12345
 
-3. Clone this project
+4. Clone this project
    ```
    git clone --recurse-submodules https://github.com/wholechainsawit/devnet-gitlab-nso-cml-ci.git
-   ```
-
-4. Copy the trial NSO from Step 2 to the Dev Server
-   ```
-   scp nso-5.3.linux.x86_64.installer.bin developer@10.10.20.50:/home/developer/devnet-gitlab-nso-cml-ci/setup/nso-docker/nso-install-files
    ```
 
 5. Run setup script
@@ -31,11 +29,11 @@
 6. Setup a new project in Gitlab
    1. Create a new project, nso_cicd, on Gitlab [Instructions](https://developer.cisco.com/learning/lab/nso-cicd/step/4)
    2. Add this project to the Gitlab
-   ```
-   cd devnet-gitlab-nso-cml-ci
-   git remote add gitlab http://10.10.20.50/root/nso_cicd.git
-   git push -u gitlab --all
-   ```
+       ```
+       cd devnet-gitlab-nso-cml-ci
+       git remote add gitlab http://10.10.20.50/root/nso_cicd.git
+       git push -u gitlab --all
+       ```
    credential: `root/C1sco12345`
 
 
