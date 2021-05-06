@@ -4,3 +4,6 @@
 [submodule "setup/nso_cicd_setup"]
 	path = setup/nso_cicd_setup
 	url = https://github.com/CiscoDevNet/nso_cicd_setup
+[submodule "setup/nso_test_restconf"]
+	path = setup/nso_test_restconf
+	url = https://github.com/wholechainsawit/nso_test_restconf.git
