@@ -2,7 +2,7 @@
 """Pytest for testing commit dry-run"""
 import logging
 import pytest
-from nso_restconf_call import NsoRestconfCall
+from nso_test_restconf import NsoRestconfCall
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
