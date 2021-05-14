@@ -1,7 +1,17 @@
-# Steps:
-1. Reserve an instance of the [Devnet CML Sandbox](https://devnetsandbox.cisco.com/RM/Diagram/Index/45100600-b413-4471-b28e-b014eb824555?diagramType=Topology)
+# Demo of NSO CI with Gitlab and Cisco Modeling Lab (CML)
+![gitlab ci](doc/img/gitlab_ci.png)
+This repository demostrates utilizing the Gitlab CI/CD Pipeline to build a CI chain with several stages including 
+1. Compile the NSO packages
+2. Set up the [devices under test in CML](#sample-cml-view) with given config
+3. Use pytest to check the functionality of NSO package
+4. Clean up everything
 
-2. After connecting to Devnet sandbox VPN, ssh to Dev Server (password: C1sco12345)
+Users can follow the setup steps to create a complete CI chain in Devnet Sandbox. The containerized NSO makes testing several NSO packages in parallel possible and the CML creates a full controlled environment for testing. Pytest tests are created based on a NSO testing library to test the dryrun of the NSO package.
+
+# Demo Setup Steps:
+1. Reserve an instance of the [Devnet CML Sandbox](https://devnetsandbox.cisco.com/RM/Diagram/Index/45100600-b413-4471-b28e-b014eb824555?diagramType=Topology), an email with how to set up VPN to the Sandbox will be sent 
+
+2. Follow the instruction in the email to set up VPN. After connecting to Devnet sandbox VPN, ssh to Dev Server (password: C1sco12345)
    ```
    ssh developer@10.10.20.50
    ```
@@ -11,7 +21,7 @@
    git clone --recurse-submodules https://github.com/wholechainsawit/devnet-gitlab-nso-cml-ci.git
    ```
 
-4. Download trial NSO from [Devnet Download](https://developer.cisco.com/fileMedia/download/da6e8ed4-0b65-357a-9cf3-c1b3357a2ad4/) and get the `nso-5.3.linux.x86_64.installer.bin` by
+4. Download trial NSO from [Devnet Download](https://developer.cisco.com/fileMedia/download/da6e8ed4-0b65-357a-9cf3-c1b3357a2ad4/) and get the unsigned `nso-5.3.linux.x86_64.installer.bin` by executing
    ```
    bash nso-5.3.linux.x86_64.signed.bin
    ```
@@ -36,6 +46,11 @@
        Username for 'http://10.10.20.50': root
        Password for 'http://root@10.10.20.50': C1sco12345
        ```
+7. That's it! Enjoy!
+
+# Sample CML View
+* Network topology in CML while running the CI
+![CML Topology](doc/img/CML_topo_small.png)
 
 # Reference:
 [Devnet Learning lab - NSO in a CI/CD Pipeline](https://developer.cisco.com/learning/lab/nso-cicd/step/1)
@@ -45,3 +60,6 @@
 Dev Server: developer@10.10.20.50 developer/C1sco12345
 CML: https://10.10.20.161  developer/C1sco12345
 ```
+
+# Acknowledgements
+Special thanks to Damiano, Asad, and Dan from Verizon for their support of this project.
