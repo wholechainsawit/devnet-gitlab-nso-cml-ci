@@ -1,5 +1,5 @@
-# Get Things Done: A simple NSO Continuous Integration (CI) 
-In this simple CI, we combine
+# Get Things Done: A simple NSO Continuous Integration 
+In this simple Continuous Integration (CI), we combine
 1. Gitlab Community Edition
 2. Cisco Modeling Lab (CML)
 3. Containerized NSO
