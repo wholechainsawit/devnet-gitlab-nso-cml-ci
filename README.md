@@ -1,9 +1,18 @@
-# Demo of NSO CI with Gitlab and Cisco Modeling Lab (CML)
+# Get Things Done: A simple NSO Continuous Integration (CI) 
+In this simple CI, we combine
+1. Gitlab Community Edition
+2. Cisco Modeling Lab (CML)
+3. Containerized NSO
+4. A simple NSO RESTCONF pytest library
+
+to demonstrate a simple CI chain like this Gitlab Pipeline
+
 ![gitlab ci](doc/img/gitlab_ci.png)
-This repository demostrates utilizing the Gitlab CI/CD Pipeline to build a CI chain with several stages including 
+
+In the Gitlab Pipeline, several stages are included,
 1. Compile the NSO packages
 2. Set up the [devices under test in CML](#sample-cml-view) with given config
-3. Use pytest to check the functionality of NSO package
+3. Use pytest to check the functionality of NSO package in docker containers
 4. Clean up everything
 
 Users can follow the setup steps to create a complete CI chain in Devnet Sandbox. The containerized NSO makes testing several NSO packages in parallel possible and the CML creates a full controlled environment for testing. Pytest tests are created based on a NSO testing library to test the dryrun of the NSO package.
@@ -62,4 +71,4 @@ CML: https://10.10.20.161  developer/C1sco12345
 ```
 
 # Acknowledgements
-Special thanks to Damiano, Asad, and Dan from Verizon for their support of this project.
+Special thanks to Damiano, Asad, and Dan from Verizon team for their support of this project.
