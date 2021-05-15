@@ -62,10 +62,10 @@ Users can follow the setup steps to create a complete CI chain in Devnet Sandbox
 ![CML Topology](doc/img/CML_topo_small.png)
 
 # Reference:
-[Devnet Learning lab - NSO in a CI/CD Pipeline](https://developer.cisco.com/learning/lab/nso-cicd/step/1)
-[NSO in Docker](https://github.com/NSO-developer/nso-docker)
-[A GTD NSO RESTCONF library](https://github.com/wholechainsawit/nso_test_restconf)
-[Hand-on with NetDevOps](https://github.com/juliogomez/netdevops)
+* [Devnet Learning lab - NSO in a CI/CD Pipeline](https://developer.cisco.com/learning/lab/nso-cicd/step/1)
+* [NSO in Docker](https://github.com/NSO-developer/nso-docker)
+* [A GTD NSO RESTCONF library](https://github.com/wholechainsawit/nso_test_restconf)
+* [Hand-on with NetDevOps](https://github.com/juliogomez/netdevops)
 
 ### Devnet Sandbox devices info
 ```
