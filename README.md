@@ -5,19 +5,19 @@ In this simple Continuous Integration (CI), we combine
 3. Containerized NSO
 4. A simple NSO RESTCONF pytest library
 
-to demonstrate a simple CI chain like this Gitlab Pipeline
+to demonstrate a simple structure of CI chain that can be easily to be expanded
 
 ![gitlab ci](doc/img/gitlab_ci.png)
 
-In the Gitlab Pipeline, several stages are included,
+In this CI Gitlab Pipeline, several stages are included,
 1. Compile the NSO packages
 2. Set up the [devices under test in CML](#sample-cml-view) with given config
 3. Use pytest to check the functionality of NSO package in docker containers
-4. Clean up everything
+4. Clean up testing environment
 
-Users can follow the setup steps to create a complete CI chain in Devnet Sandbox. The containerized NSO makes testing several NSO packages in parallel possible and the CML creates a full controlled environment for testing. Pytest tests are created based on a NSO testing library to test the dryrun of the NSO package.
+Readers can follow the [setup steps](#steps-of-setting-up-the-ci-in-devnet-sandbox) to create a complete CI chain in Devnet Sandbox. The containerized NSO makes testing several NSO packages in parallel possible and the CML creates a full controlled environment for testing. Pytest tests are created based on a NSO testing library to test the dryrun of the NSO package.
 
-# Demo Setup Steps:
+# Steps of Setting up the CI in Devnet Sandbox:
 1. Reserve an instance of the [Devnet CML Sandbox](https://devnetsandbox.cisco.com/RM/Diagram/Index/45100600-b413-4471-b28e-b014eb824555?diagramType=Topology), an email with how to set up VPN to the Sandbox will be sent 
 
 2. Follow the instruction in the email to set up VPN. After connecting to Devnet sandbox VPN, ssh to Dev Server (password: C1sco12345)
@@ -61,17 +61,22 @@ Users can follow the setup steps to create a complete CI chain in Devnet Sandbox
 * Network topology in CML while running the CI
 ![CML Topology](doc/img/CML_topo_small.png)
 
+# Credentials of connecting to Devnet Sandbox devices
+```
+Dev Server: developer@10.10.20.50 developer/C1sco12345
+CML: https://10.10.20.161  developer/C1sco12345
+```
+
+# Credits
+1. [Containerized NSO](https://github.com/NSO-developer/nso-docker)
+2. [Gitlab Setup in Devent Sandbox](https://github.com/CiscoDevNet/nso_cicd_setup)
+
+# Acknowledgements
+Special thanks to Damiano, Asad, and Dan from Verizon team for their support to make this project possible
+
 # Reference:
 * [Devnet Learning lab - NSO in a CI/CD Pipeline](https://developer.cisco.com/learning/lab/nso-cicd/step/1)
 * [NSO in Docker](https://github.com/NSO-developer/nso-docker)
 * [A GTD NSO RESTCONF library](https://github.com/wholechainsawit/nso_test_restconf)
 * [Hand-on with NetDevOps](https://github.com/juliogomez/netdevops)
 
-### Devnet Sandbox devices info
-```
-Dev Server: developer@10.10.20.50 developer/C1sco12345
-CML: https://10.10.20.161  developer/C1sco12345
-```
-
-# Acknowledgements
-Special thanks to Damiano, Asad, and Dan from Verizon team for their support of this project.
