@@ -5,7 +5,7 @@ In this simple Continuous Integration (CI), we combine
 3. Containerized NSO
 4. A simple NSO RESTCONF pytest library
 
-to demonstrate a simple structure of CI chain that can be easily to be expanded
+to demonstrate a simple structure of CI chain that can be easily expanded.
 
 ![gitlab ci](doc/img/gitlab_ci.png)
 
