@@ -1,4 +1,5 @@
 # Get Things Done: A simple NSO Continuous Integration 
+[![published](https://static.production.devnetcloud.com/codeexchange/assets/images/devnet-published.svg)](https://developer.cisco.com/codeexchange/github/repo/wholechainsawit/devnet-gitlab-nso-cml-ci)  
 In this simple Continuous Integration (CI), we combine
 1. Gitlab Community Edition
 2. Cisco Modeling Lab (CML)
