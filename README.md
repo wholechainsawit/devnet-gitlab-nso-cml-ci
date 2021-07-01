@@ -79,5 +79,5 @@ Special thanks to Damiano, Asad, and Dan from Verizon team for their support to 
 * [Devnet Learning lab - NSO in a CI/CD Pipeline](https://developer.cisco.com/learning/lab/nso-cicd/step/1)
 * [NSO in Docker](https://github.com/NSO-developer/nso-docker)
 * [A GTD NSO RESTCONF library](https://github.com/wholechainsawit/nso_test_restconf)
-* [Hand-on with NetDevOps](https://github.com/juliogomez/netdevops)
+* [Hands-on with NetDevOps](https://github.com/juliogomez/netdevops)
 
