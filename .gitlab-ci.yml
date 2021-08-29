@@ -15,7 +15,7 @@ stages:
     - Build
     - Load Config to CML
     - Check Connection
-    - NSO Dryrun Tests
+    - Run NSO Pytest Tests
     - Clean Up CML
 
 Compile NSO Packages:
