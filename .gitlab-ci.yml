@@ -40,7 +40,7 @@ Check Connection:
     - python3 cml/cml_ping_check.py
 
 Test config-dns Package:
-  stage: NSO Dryrun Tests
+  stage: Run NSO Pytest Tests
   script:
     - mkdir -p /nso/run/packages
     - cp -af release/* /nso/run/packages
