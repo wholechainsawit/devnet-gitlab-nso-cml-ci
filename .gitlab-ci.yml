@@ -54,7 +54,7 @@ Test config-dns Package:
     - cd test; python3 -m pytest -sv dryrun_tests/test_config_dns.py
 
 Test config-ntp Package:
-  stage: NSO Dryrun Tests
+  stage: Run NSO Pytest Tests
   script:
     - mkdir -p /nso/run/packages
     - cp -af release/* /nso/run/packages
